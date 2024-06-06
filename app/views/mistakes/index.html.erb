@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<div class='row'>
+  <div class='col-md-4'></div>
+  <div class='col-md-8'>
+    <h1>Mistakes</h1>
+  </div>
+</div>
+
+<div id="mistakes">
+  <% @mistakes.each do |mistake| %>
+    <%= render mistake %>
+    <p>
+      <%= link_to "Show this mistake", mistake %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New mistake", new_mistake_path %>
