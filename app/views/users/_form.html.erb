@@ -1,4 +1,4 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: user) do |f| %>
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,18 +11,16 @@
     </div>
   <% end %>
 
-  <form>
-    <div class= "mb-3" id="add-name">
-      <label for="inputName" class="user-form-label">Enter Name:</label>
-      <input type="name" class="user-form-control" id="inputName">
-    </div>
-     <div class= "mb-3" id="add-email">
-      <label for="inputEmail" class="user-form-label">Enter Email:</label>
-      <input type="email" class="user-form-control" id="inputEmail">
-    </div>
-  </form>
+  <div class="row">
+    <div class="col-sm-1"><%= f.label :users %></div>
+    <div class="col-sm-4"><%= f.text_field :name, class: "form-control" %></div>
+  </div><br>
+  <div class="row">
+    <div class="col-sm-1"><%= f.label :email %></div>
+    <div class="col-sm-4"><%= f.text_field :email, class: "form-control" %></div>
+  </div><br>
 
   <div>
-    <%= form.submit %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
