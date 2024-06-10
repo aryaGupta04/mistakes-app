@@ -1,4 +1,6 @@
 class MistakesDatatable < Datatable
+  delegate :edit_mistake_path, to: :@view
+  delegate :mistake_path, to: :@view
     def as_json(_options = {})
       {
         data: data,
@@ -15,7 +17,9 @@ class MistakesDatatable < Datatable
           mistake.name,
           mistake.description,
           mistake.severity,
-          mistake.users.count
+          mistake.users.count,
+          link_to("Edit", edit_mistake_path(mistake.id)),
+          link_to("Delete", mistake_path(mistake.id), method: :delete, data: {confirm:"Are you sure you want to delete this mistake?"})
         ]
       end
     end
