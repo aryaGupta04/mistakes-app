@@ -18,6 +18,7 @@ class MistakesDatatable < Datatable
           mistake.description,
           mistake.severity,
           mistake.users.count,
+          link_to("Show", mistake_path(mistake.id)),
           link_to("Edit", edit_mistake_path(mistake.id)),
           link_to("Delete", mistake_path(mistake.id), method: :delete, data: {confirm:"Are you sure you want to delete this mistake?"})
         ]

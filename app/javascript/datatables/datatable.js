@@ -36,7 +36,12 @@ $(document).on('turbo:load', function() {
             {
                 width: '10%',
                 orderable: false
-            }
+            },
+            {
+                width: '10%',
+                orderable: false
+            },
+            
         ],
         ajax: {
             url: $('#users').data('source'),
@@ -57,6 +62,10 @@ $(document).on('turbo:load', function() {
         paging: false,
         dom: 'lftrip',
         columns: [
+            {
+                width: '10%',
+                orderable: false
+            },
             {
                 width: '10%',
                 orderable: false

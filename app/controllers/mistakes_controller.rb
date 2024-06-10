@@ -12,6 +12,7 @@ class MistakesController < ApplicationController
 
   # GET /mistakes/1 or /mistakes/1.json
   def show
+    @mistake = Mistake.find(params[:id])
   end
 
   # GET /mistakes/new
@@ -69,6 +70,6 @@ class MistakesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mistake_params
-      params.fetch(:mistake, {})
+      params.require(:mistake).permit(:name, :description, :severity)
     end
 end

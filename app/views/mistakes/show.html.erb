@@ -1,7 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @mistake %>
-
+<h1>Mistake Details</h1>
+<p><strong>Name:</strong> <%= @mistake.name %></p>
+<p><strong>Description:</strong> <%= @mistake.description %></p>
+<p><strong>Severity:</strong> <%= @mistake.severity %></p>
+<p><strong>Count:</strong> <%= @mistake.users.count %></p>
 <div>
   <%= link_to "Edit this mistake", edit_mistake_path(@mistake) %> |
   <%= link_to "Back to mistakes", mistakes_path %>

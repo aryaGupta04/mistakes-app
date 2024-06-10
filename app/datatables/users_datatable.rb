@@ -18,6 +18,7 @@ class UsersDatatable < Datatable
         user.name,
         user.created_at,
         user.mistakes.count,
+        link_to("Show", user_path(user.id)),
         link_to("Edit", edit_user_path(user.id)),
         link_to("Delete", user_path(user.id), method: :delete, data: {confirm:"Are you sure you want to delete this user?"})
         
