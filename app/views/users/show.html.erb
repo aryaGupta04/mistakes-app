@@ -5,6 +5,17 @@
 <p><strong>Name:</strong> <%= @user.name %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
 
+<h1>Mistakes</h1>
+<% if @user.mistakes.empty? %>
+  <p>No mistakes found.</p>
+<% else %>
+<% @user.mistakes.each do |mistake| %>
+<ul>
+  <li><%= mistake.name %></li>
+  </ul>
+<% end %>
+<% end %>
+
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %>

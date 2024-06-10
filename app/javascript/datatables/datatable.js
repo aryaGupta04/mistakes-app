@@ -105,3 +105,40 @@ $(document).on('turbo:load', function() {
         }
     });
 });
+
+
+$(document).on('turbo:load', function() {
+    $('#mistake_users').dataTable({
+        processing: true,
+        responsive: true,
+        serverSide: true,
+        paging: false,
+        dom: 'lftrip',
+        columns: [
+            {
+                width: '10%',
+                orderable: false
+            },
+            {
+                width: '10%',
+                orderable: false
+            },
+            {
+                width: '10%',
+                orderable: false
+            },
+            {
+                width: '10%',
+                orderable: false
+            },
+            
+        ],
+        ajax: {
+            url: $('#mistake_users').data('source'),
+            data: function(data) {
+                return $.extend( {}, data, {
+                });
+            }
+        }
+    });
+});

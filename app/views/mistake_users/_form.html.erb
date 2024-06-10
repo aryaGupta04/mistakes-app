@@ -1,0 +1,27 @@
+<%= form_with(model: mistake_user) do |f| %>
+  <% if mistake_user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(mistake_user.errors.count, "error") %> prohibited this mistake_user from being saved:</h2>
+
+      <ul>
+        <% mistake_user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-1"><%= f.label :user_id , "User's Email" %></div>
+    <div class="col-sm-4"><%=f.select :user_id, options_from_collection_for_select(User.all, :id, :email, f.object.user_id), { include_blank: 'Select User Name'}, class: "form-control" %></div>
+  </div><br>
+   <div class="row">
+    <div class="col-sm-1"><%= f.label :mistake_id, "Mistake Type"%></div>
+    <div class="col-sm-4"><%= f.select :mistake_id, options_from_collection_for_select(Mistake.all, :id, :name, f.object.mistake_id), { include_blank: 'Select User Name'}, class: "form-control" %></div>
+  </div><br>
+
+  <div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
